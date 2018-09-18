@@ -74,6 +74,11 @@ function card_select($deck) {
     return array ($rand_suit, $rand_card, $rand_card_value); //returns suit, card and value as an array.
 }
 
+function draw_card() {
+
+}
+
+
 $player_1_card_1_array = card_select($deck_template); //feeds $deck_template into card_select function, returns an array containing suit, card and value.
 echo "Player one's first card is a " . $player_1_card_1_array[1] . " of " . $player_1_card_1_array[0] . ", it has a value of " . "$player_1_card_1_array[2]" . "\n";
 unset($deck_template[$player_1_card_1_array[0]][$player_1_card_1_array[1]]); //finds the card chosen in $player_1_card_1_array and removes it from $deck_template using 0 = suit and 1 = card.
