@@ -75,7 +75,7 @@ function card_select($deck) {
 }
 
 function output_card($card) {
-    return "'s first card is a " . $card[1] . " of " . $card[0] . ", it has a value of " . "$card[2]" . "\n";
+    return " card is a " . $card[1] . " of " . $card[0] . ", it has a value of " . "$card[2]" . "\n";
 }
 
 function calc_total_score($player_card_1_array, $player_card_2_array) {
@@ -83,54 +83,33 @@ function calc_total_score($player_card_1_array, $player_card_2_array) {
 }
 
 $player_1_card_1_array = card_select($deck_template); //feeds $deck_template into card_select function, returns an array containing suit, card and value.
-echo "Player one" . output_card($player_1_card_1_array);
+echo "Player one's first" . output_card($player_1_card_1_array);
 unset($deck_template[$player_1_card_1_array[0]][$player_1_card_1_array[1]]); //finds the card chosen in $player_1_card_1_array and removes it from $deck_template using 0 = suit and 1 = card.
 
-$player_1_card_2_array = card_select($deck_template); //feeds $deck_template into card_select function, returns an array containing suit, card and value.
-echo "Player one" . output_card($player_1_card_2_array);
+$player_1_card_2_array = card_select($deck_template);
+echo "Player one's second" . output_card($player_1_card_2_array);
 unset($deck_template[$player_1_card_2_array[0]][$player_1_card_2_array[1]]);
-$total_score_p1 = calc_total_score($player_1_card_1_array, $player_1_card_2_array;
-echo "Player one" . $total_score_p1;
+$total_score_p1 = calc_total_score($player_1_card_1_array, $player_1_card_2_array);
+echo "Player one's total score is " . $total_score_p1 . "\n\n";
 
-
-
-$player_2_card_1_array = card_select($deck_template); //feeds $deck_template into card_select function, returns an array containing suit, card and value.
-echo "Player two" . output_card($player_2_card_1_array);
-unset($deck_template[$player_2_card_1_array[0]][$player_2_card_1_array[1]]); //finds the card chosen in $player_1_card_1_array and removes it from $deck_template using 0 = suit and 1 = card.
+$player_2_card_1_array = card_select($deck_template);
+echo "Player two's first" . output_card($player_2_card_1_array);
+unset($deck_template[$player_2_card_1_array[0]][$player_2_card_1_array[1]]);
 
 $player_2_card_2_array = card_select($deck_template); //feeds $deck_template into card_select function, returns an array containing suit, card and value.
 echo "Player two" . output_card($player_2_card_2_array);
 unset($deck_template[$player_2_card_2_array[0]][$player_2_card_2_array[1]]);
-$total_score_p2 = calc_total_score($player_2_card_1_array, $player_2_card_2_array;
-echo "Player two" . $total_score_p2;
+$total_score_p2 = calc_total_score($player_2_card_1_array, $player_2_card_2_array);
+echo "Player two's total score is " . $total_score_p2 . "\n\n";
 
-
-
-//$player_1_card_2_array = card_select($deck_template);
-//echo "Player one's second card is a " . $player_1_card_2_array[1] . " of " . $player_1_card_2_array[0] . ", it has a value of " . "$player_1_card_2_array[2]" . ".\n";
-//unset($deck_template[$player_1_card_2_array[0]][$player_1_card_2_array[1]]);
-//echo "Player one has a total score of " . $total_score_p1 = $player_1_card_1_array[2] + $player_1_card_2_array[2] . "\n\n";
-//
-//$player_2_card_1_array = card_select($deck_template);
-//echo "Player two's first card is a " . $player_2_card_1_array[1] . " of " . $player_2_card_1_array[0] . ", it has a value of " . "$player_2_card_1_array[2]" . ".\n";
-//unset($deck_template[$player_2_card_1_array[0]][$player_2_card_1_array[1]]);
-//
-//$player_2_card_2_array = card_select($deck_template);
-//echo "Player two's second card is a " . $player_2_card_2_array[1] . " of " . $player_2_card_2_array[0] . ", it has a value of " . "$player_2_card_2_array[2]" . ".\n";
-//unset($deck_template[$player_2_card_2_array[0]][$player_2_card_2_array[1]]);
-//echo "Player two has a total score of " . $total_score_p2 = $player_2_card_1_array[2] + $player_2_card_2_array[2] . "\n\n";
-//
-
-if ()
-
-elseif ($total_score_p1 > 21) {
+if ($total_score_p1 > 21) {
     echo "Player one is bust :(, Player two wins!!!";
 }
 elseif ($total_score_p2 > 21) {
     echo "Player two is bust :(, Player one wins!!!";
 }
 elseif ($total_score_p1 === $total_score_p2) {
-    echo "It's a draw mother-fuckers";
+    echo "It's a draw you jokers.";
 }
 elseif ($total_score_p1 > $total_score_p2) {
     echo "Player one wins!!!";
