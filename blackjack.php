@@ -75,7 +75,11 @@ function card_select($deck) {
 }
 
 function output_card($card) {
-    return " card is a " . $card[1] . " of " . $card[0] . ", it has a value of " . "$card[2]" . "\n";
+    if (is_array($card)) {
+        return " card is a " . $card[1] . " of " . $card[0] . ", it has a value of " . "$card[2]" . "\n";
+    } else {
+        return FALSE;
+    }
 }
 
 function calc_total_score($player_card_1_array, $player_card_2_array) {
@@ -104,8 +108,7 @@ echo "Player two's total score is " . $total_score_p2 . "\n\n";
 
 if ($total_score_p1 > 21) {
     echo "Player one is bust :(, Player two wins!!!";
-}
-elseif ($total_score_p2 > 21) {
+} elseif ($total_score_p2 > 21) {
     echo "Player two is bust :(, Player one wins!!!";
 }
 elseif ($total_score_p1 === $total_score_p2) {
